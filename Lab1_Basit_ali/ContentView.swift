@@ -23,6 +23,31 @@ struct ContentView: View {
             Text("\(number)")
                 .font(.system(size: 80, weight: .bold))
                 .padding()
+            
+           
+            HStack{
+                Button(action: {
+                    checkAnswer(userChoice: true)
+                    
+                }) {
+                    Text("Prime")
+                        .padding()
+                        .frame(width: 120, height: 50)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                
+                Button(action: {
+                    checkAnswer(userChoice: false)
+                    
+                }) {
+                    Text("Not Prime")
+                        .padding()
+                        .frame(width: 120, height: 50)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                }
+            }
         }
     }
 }
