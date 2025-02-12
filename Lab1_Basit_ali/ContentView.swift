@@ -11,9 +11,10 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var number = Int.random(in: 1...100)
-    @State private var correctAnswers = 0
-    @State private var wrongAnswers = 0
-
+    @State private var correctAnswer = 0
+    @State private var wrongAnswer = 0
+    @State private var Icon = ""
+    
     var body: some View {
         VStack {
             Text("Is this Prime number?")
@@ -24,7 +25,10 @@ struct ContentView: View {
                 .font(.system(size: 80, weight: .bold))
                 .padding()
             
-           
+            Text(Icon)
+                .font(.system(size: 50))
+                .padding()
+            
             HStack{
                 Button(action: {
                     checkAnswer(userChoice: true)
@@ -34,6 +38,7 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 120, height: 50)
                         .background(Color.blue)
+                        .foregroundColor(.white)
                         .cornerRadius(10)
                 }
                 
@@ -45,13 +50,27 @@ struct ContentView: View {
                         .padding()
                         .frame(width: 120, height: 50)
                         .background(Color.red)
+                        .foregroundColor(.white)
                         .cornerRadius(10)
                 }
             }
+            .padding()
+        }
+    }
+    
+    func checkAnswer(userChoice: Bool) {
+        if userChoice == isPrime(number) {
+            correctAnswer += 1
+            resultMessage = "Correct"
+            Icon = "✅"
+        } else {
+            wrongAnswer += 1
+            resultMessage = "Wrong"
+            Icon = "❌"
+      
         }
     }
 }
-
 #Preview {
     ContentView()
 }
