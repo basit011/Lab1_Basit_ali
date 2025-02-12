@@ -95,8 +95,15 @@ struct ContentView: View {
         }
         return true
     }
-}
 
+    func nextRound() {
+        attempts += 1
+        if attempts % 10 == 0 {
+            showDialog = true
+        }
+        number = Int.random(in: 1...100)
+    }
+}
 #Preview {
     ContentView()
 }
