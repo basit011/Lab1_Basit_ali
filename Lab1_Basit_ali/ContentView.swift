@@ -15,7 +15,9 @@ struct ContentView: View {
     @State private var wrongAnswer = 0
     @State private var showResult = false
     @State private var resultMessage = ""
+    @State private var showDialog = false
     @State private var Icon = ""
+    
     
     var body: some View {
         VStack {
@@ -64,9 +66,15 @@ struct ContentView: View {
                     .foregroundColor(resultMessage.contains("Correct") ?.green: .red)
                     .padding()
             }
+                    }
+        
+                .alert(isPresented: $showDialog) {
+                    Alert(
+                        title: Text("Attempt Summary"),
+                        message: Text("Correct: \(correctAnswer) \nWrong:\(wrongAnswer)"),
+                        dismissButton: .default(Text("Ok")))
+                }
         }
-    }
-    
     func checkAnswer(userChoice: Bool) {
         if userChoice == isPrime(number) {
             correctAnswer += 1
