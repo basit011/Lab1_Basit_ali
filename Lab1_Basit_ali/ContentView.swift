@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var wrongAnswer = 0
     @State private var showResult = false
     @State private var resultMessage = ""
+    @State private var attempts = 0
     @State private var showDialog = false
     @State private var Icon = ""
     
