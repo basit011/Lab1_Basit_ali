@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var number = Int.random(in: 1...100)
     @State private var correctAnswer = 0
     @State private var wrongAnswer = 0
+    @State private var showResult = false
     @State private var resultMessage = ""
     @State private var Icon = ""
     
@@ -56,6 +57,13 @@ struct ContentView: View {
                 }
             }
             .padding()
+            
+            if showResult {
+                Text(resultMessage)
+                    .font(.title)
+                    .foregroundColor(resultMessage.contains("Correct") ?.green: .red)
+                    .padding()
+            }
         }
     }
     
