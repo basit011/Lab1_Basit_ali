@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var number = Int.random(in: 1...100)
     @State private var correctAnswer = 0
     @State private var wrongAnswer = 0
+    @State private var resultMessage = ""
     @State private var Icon = ""
     
     var body: some View {
@@ -69,6 +70,13 @@ struct ContentView: View {
             Icon = "❌"
       
         }
+    }
+    func isPrime(_ num: Int) -> Bool {
+        if num < 2 { return false }
+        for i in 2..<num {
+            if num % i == 0 { return false }
+        }
+        return true
     }
 }
 #Preview {
