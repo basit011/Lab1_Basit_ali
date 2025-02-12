@@ -9,15 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var number = Int.random(in: 1...100)
+    @State private var correctAnswers = 0
+    @State private var wrongAnswers = 0
 
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Is this Prime number?")
+                .font(.largeTitle)
+                .padding()
+            
+            Text("\(number)")
+                .font(.system(size: 80, weight: .bold))
+                .padding()
         }
-        .padding()
     }
 }
 
