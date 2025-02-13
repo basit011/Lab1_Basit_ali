@@ -96,6 +96,13 @@ struct ContentView: View {
         }
         return true
     }
+    
+    func recordedWrongAnswer() {
+        wrongAnswer += 1
+        resultMessage = "Times up!"
+        showResult = true
+        nextRound()
+    }
 
     func nextRound() {
         attempts += 1
