@@ -69,7 +69,7 @@ struct ContentView: View {
             }
         }
         .onReceive(timer) { _ in
-            recordedWrongAnswer()
+            recordWrongAnswer()
         }
         .alert(isPresented: $showDialog) {
             Alert(
@@ -99,7 +99,7 @@ struct ContentView: View {
         return true
     }
     
-    func recordedWrongAnswer() {
+    func recordWrongAnswer() {
         wrongAnswer += 1
         resultMessage = "Times up!"
         showResult = true
