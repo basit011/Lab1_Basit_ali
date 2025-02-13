@@ -67,15 +67,17 @@ struct ContentView: View {
                     .foregroundColor(resultMessage.contains("Correct") ?.green: .red)
                     .padding()
             }
-                    }
-        
-                .alert(isPresented: $showDialog) {
-                    Alert(
-                        title: Text("Attempt Summary"),
-                        message: Text("Correct: \(correctAnswer) \nWrong:\(wrongAnswer)"),
-                        dismissButton: .default(Text("Ok")))
-                }
         }
+        .onReceive(timer) { _ in
+            recordedWrongAnswer()
+        }
+        .alert(isPresented: $showDialog) {
+            Alert(
+                title: Text("Attempt Summary"),
+                message: Text("Correct: \(correctAnswer) \nWrong:\(wrongAnswer)"),
+                dismissButton: .default(Text("Ok")))
+        }
+}
     func checkAnswer(userChoice: Bool) {
         if userChoice == isPrime(number) {
             correctAnswer += 1
