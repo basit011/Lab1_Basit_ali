@@ -18,7 +18,7 @@ struct ContentView: View {
     @State private var attempts = 0
     @State private var showDialog = false
     @State private var Icon = ""
-    
+    @State private var timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
@@ -85,7 +85,7 @@ struct ContentView: View {
             wrongAnswer += 1
             resultMessage = "Wrong"
             Icon = "❌"
-      
+
         }
     }
     
