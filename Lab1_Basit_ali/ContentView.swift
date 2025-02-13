@@ -89,6 +89,8 @@ struct ContentView: View {
             Icon = "❌"
 
         }
+        showResult = true
+        nextRound()
     }
     
     func isPrime(_ num: Int) -> Bool {
