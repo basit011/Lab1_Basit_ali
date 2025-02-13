@@ -64,7 +64,7 @@ struct ContentView: View {
             if showResult {
                 Text(resultMessage)
                     .font(.title)
-                    .foregroundColor(resultMessage.contains("Correct") ?.green: .red)
+                    .foregroundColor(resultMessage.contains("Correct") ? .green: .red)
                     .padding()
             }
         }
