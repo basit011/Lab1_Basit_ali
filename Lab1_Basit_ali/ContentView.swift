@@ -104,6 +104,7 @@ struct ContentView: View {
     func recordWrongAnswer() {
         wrongAnswer += 1
         resultMessage = "Times up!"
+        Icon = "❌"
         showResult = true
         nextRound()
     }
