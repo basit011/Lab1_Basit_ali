@@ -40,6 +40,7 @@ struct ContentView: View {
                     
                 }) {
                     Text("Prime")
+                        .font(.headline)
                         .padding()
                         .frame(width: 120, height: 50)
                         .background(Color.blue)
@@ -52,6 +53,7 @@ struct ContentView: View {
                     
                 }) {
                     Text("Not Prime")
+                        .font(.headline)
                         .padding()
                         .frame(width: 120, height: 50)
                         .background(Color.red)
@@ -115,6 +117,7 @@ struct ContentView: View {
             showDialog = true
         }
         number = Int.random(in: 1...100)
+        timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     }
 }
 #Preview {
