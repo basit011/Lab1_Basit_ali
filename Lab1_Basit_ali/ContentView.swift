@@ -117,6 +117,7 @@ struct ContentView: View {
             showDialog = true
         }
         number = Int.random(in: 1...100)
+        timer.upstream.connect().cancel()       
         timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
     }
 }
